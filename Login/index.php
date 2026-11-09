@@ -17,7 +17,7 @@
         <div class="login-card">
             <h1 class="login-title">BIENVENID@ A BENCH<br>WARRIORS</h1>
             
-            <form action="#" method="POST" class="login-form">
+            <form action="" method="POST" class="login-form">
                 <div class="input-group">
                     <label for="usuario">Usuario:</label>
                     <input type="text" id="usuario" name="usuario" required>
