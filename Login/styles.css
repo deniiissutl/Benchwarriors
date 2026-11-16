@@ -126,7 +126,7 @@ body {
 }
 
 .btn-primary {
-    background-color: #5b42f3; /* Morado del botón Ingresar */
+    background-color: #5b42f3; 
     color: #ffffff;
     border: none;
     transition: 0.3s;
@@ -137,6 +137,7 @@ body {
 }
 
 .btn-secondary {
+    text-decoration: none;
     background-color: #ffffff;
     color: #5b42f3;
     border: 1px solid #5b42f3;
@@ -145,4 +146,15 @@ body {
 
 .btn-secondary:hover {
     background-color: #e0dbfc;
+}
+
+/* ERRORES */
+.errores-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.errores-group p{
+    color: #c22424;
+    font-size: 0.8em;
 }
