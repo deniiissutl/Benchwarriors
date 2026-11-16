@@ -1,0 +1,160 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f2f3f5; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+/* Contenedor del Logo */
+.logo-container {
+    background-color: #cecccc; 
+    border-radius: 40px;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.logo-img {
+    width: 90%;
+    height: auto;
+    border-radius: 20px;
+}
+
+/* Tarjeta Blanca de Login */
+.login-card {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 50px 40px 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
+    position: relative;
+}
+
+.login-title {
+    text-align: center;
+    color: #1a1e29;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* Formulario */
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1e29;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    padding: 14px;
+    border: 1px solid #e1e3e8;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #5b42f3; /
+}
+
+.forgot-password {
+    font-size: 12px;
+    font-weight: 700;
+    color: #5b42f3; 
+    text-decoration: none;
+    margin-bottom: 30px;
+    align-self: flex-start;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Botones */
+.button-group {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    flex: 1;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #5b42f3; 
+    color: #ffffff;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #4230b6;
+}
+
+.btn-secondary {
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #5b42f3;
+    border: 1px solid #5b42f3;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #e0dbfc;
+}
+
+/* ERRORES */
+.errores-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.errores-group p{
+    color: #c22424;
+    font-size: 0.8em;
+}

@@ -18,6 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         
         session_start();
         $exito = "Usuario logeado correctamente";
+
+        header("Location: ../Main/main.php");
     }
 }
 ?>
