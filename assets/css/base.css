@@ -1,0 +1,80 @@
+/* =========================================================
+   BASE: fuente, colores del diseño (Figma) y reseteo
+   La usan TODAS las páginas (también login/registro).
+   ========================================================= */
+
+@font-face {
+    font-family: 'Instrument Sans';
+    src: url('../fonts/instrument-sans-latin-400-normal.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Instrument Sans';
+    src: url('../fonts/instrument-sans-latin-700-normal.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    /* Colores sacados del Figma */
+    --color-fondo: #f6f7f8;
+    --color-tarjeta: #ffffff;
+    --color-borde: #e5e7eb;
+    --color-texto: #111827;
+    --color-texto-suave: #6b7280;
+    --color-icono: #596277;
+    --color-morado: #7c3aed;
+    --color-morado-hover: #6d28d9;
+    --color-morado-claro: #f3e8ff;
+    --color-fila-gris: #e0e0e0;
+    --color-placeholder: #d9d9d9;
+    --color-boton-oscuro: #111827;
+
+    --fuente: 'Instrument Sans', 'Inter', Arial, sans-serif;
+
+    /* Altura de la barra inferior (86px en el diseño de 1280px) */
+    --alto-footer: 5.375rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* El diseño está hecho a 1280px con 1rem = 16px.
+   Así la página escala igual que el Figma en pantallas más pequeñas. */
+html {
+    font-size: clamp(12px, 1.25vw, 16px);
+}
+
+body {
+    font-family: var(--fuente);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* Móvil: tamaño de letra fijo para que se lea bien */
+@media (max-width: 720px) {
+    html {
+        font-size: 14px;
+    }
+}

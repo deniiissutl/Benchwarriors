@@ -1,0 +1,176 @@
+/* =========================================================
+   RUTINAS: lista de rutinas por día + ranking
+   ========================================================= */
+
+.rutinas-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 17.25rem;
+    gap: 2.5rem;
+    margin-top: -0.6875rem;          /* el diseño tiene menos aire bajo el título */
+}
+
+.rutinas-layout .titulo-seccion {
+    margin-bottom: 1.1875rem;
+}
+
+.col-rutinas .titulo-seccion {
+    padding-left: 0.4375rem;
+}
+
+.col-ranking .titulo-seccion {
+    padding-left: 0.8125rem;
+}
+
+/* ---------- Filas de rutina ---------- */
+.lista-rutinas {
+    display: flex;
+    flex-direction: column;
+    gap: 1.375rem;
+    list-style: none;
+}
+
+.rutina {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 4.25rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border: 1px solid var(--color-borde);
+    border-radius: 1rem;
+    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.04);
+}
+
+.rutina .dia {
+    width: 4.75rem;
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.rutina .iconos-ejercicio {
+    flex: 1;
+}
+
+.rutina .boton-morado,
+.rutina .boton-blanco {
+    width: 8.875rem;
+    flex-shrink: 0;
+}
+
+/* ---------- Panel de ranking ---------- */
+.ranking {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border: 1px solid var(--color-borde);
+    border-radius: 1rem;
+    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.04);
+}
+
+.ranking h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 2rem;
+}
+
+.ranking ol {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+}
+
+.ranking li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+}
+
+.ranking .posicion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    flex-shrink: 0;
+    background-color: var(--color-morado-claro);
+    color: var(--color-morado);
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 50%;
+}
+
+.ranking .avatar {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    background-color: #d1d5db;
+    border-radius: 50%;
+}
+
+.ranking .nombre {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* Tu posición resaltada */
+.ranking li.tu {
+    padding: 0.5rem 0.75rem;
+    background-color: var(--color-morado-claro);
+    border-radius: 0.75rem;
+    color: var(--color-morado);
+    font-weight: 700;
+}
+
+.ranking li.tu .posicion {
+    background-color: var(--color-morado);
+    color: #ffffff;
+}
+
+.ranking hr {
+    border: none;
+    border-top: 1px solid var(--color-borde);
+}
+
+/* ---------- Tablet: ranking debajo ---------- */
+@media (max-width: 1000px) {
+    .rutinas-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* ---------- Móvil: botones debajo de los iconos ---------- */
+@media (max-width: 720px) {
+    .rutinas-layout {
+        margin-top: 0;
+    }
+
+    .rutina {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .rutina .dia {
+        font-size: 1.2rem;
+        width: auto;
+    }
+
+    .rutina .iconos-ejercicio {
+        gap: 0.875rem;
+    }
+
+    .rutina .iconos-ejercicio {
+        flex: 1 1 auto;
+    }
+
+    .rutina .boton-morado,
+    .rutina .boton-blanco {
+        flex: 1 1 40%;
+        width: auto;
+    }
+}

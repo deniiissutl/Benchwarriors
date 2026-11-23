@@ -1,0 +1,62 @@
+/* =========================================================
+   FOOTER: barra de navegación inferior
+   El icono de la sección actual lleva la clase .activo
+   ========================================================= */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--alto-footer);
+    background-color: #ffffff;
+    border-top: 1px solid var(--color-borde);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03);
+    z-index: 1000;
+}
+
+.footer-group,
+.footer-group ul {
+    height: 100%;
+}
+
+.footer-group ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.footer-group li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--alto-footer);
+    height: 100%;
+    border-radius: 0.75rem;
+    transition: background-color 0.2s ease;
+}
+
+.footer-group li a:hover,
+.footer-group li a:focus-visible {
+    background-color: #f8f4ff;
+}
+
+.footer-group li a.activo {
+    background-color: #f2e8ff;
+}
+
+.footer-group img {
+    width: 1.875rem;
+    height: 1.875rem;
+}
+
+@media (max-width: 720px) {
+    :root {
+        --alto-footer: 4.5rem;
+    }
+
+    .footer-group li a {
+        width: 4.5rem;
+    }
+}

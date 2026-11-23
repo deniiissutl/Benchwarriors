@@ -1,0 +1,267 @@
+/* =========================================================
+   APP: estilos compartidos por las vistas con barra inferior
+   (main, recetas, rutas, rutinas, perfil)
+   ========================================================= */
+
+body {
+    display: flow-root;             /* evita que el margen de la tarjeta "salga" del body */
+    min-height: 100vh;
+    /* Hueco para que la barra fija no tape el contenido */
+    padding-bottom: var(--alto-footer);
+}
+
+/* ---------- Tarjeta blanca principal ---------- */
+.tarjeta {
+    position: relative;
+    width: calc(100% - 3.875rem);
+    max-width: 76.0625rem;          /* 1217px */
+    min-height: calc(100vh - var(--alto-footer) - 3.1875rem);
+    margin: 1.75rem auto 1.4375rem;
+    padding: 1.0625rem;
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 1.5rem;
+    box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.05);
+}
+
+/* ---------- Títulos ---------- */
+.titulo-pagina,
+.titulo-seccion {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.titulo-pagina {
+    margin-bottom: 2.125rem;
+    padding-right: 4rem;            /* no pisar el icono de inicio */
+}
+
+.titulo-seccion {
+    margin-bottom: 0.8125rem;
+}
+
+.seccion + .seccion {
+    margin-top: 2.125rem;
+}
+
+/* ---------- Icono de inicio (arriba a la derecha) ---------- */
+.boton-inicio {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 0.75rem;
+    transition: background-color 0.2s ease;
+}
+
+.boton-inicio:hover,
+.boton-inicio:focus-visible {
+    background-color: var(--color-morado-claro);
+}
+
+.boton-inicio img {
+    width: 100%;
+    height: 100%;
+}
+
+/* ---------- Botones ---------- */
+.boton-oscuro {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 11.125rem;
+    height: 2.625rem;
+    flex-shrink: 0;
+    background-color: var(--color-boton-oscuro);
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 0.9375rem;
+    box-shadow: 0 0.375rem 1rem rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.boton-oscuro:hover,
+.boton-oscuro:focus-visible {
+    background-color: var(--color-morado);
+    transform: translateY(-1px);
+}
+
+.boton-morado,
+.boton-blanco {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.25rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.boton-morado {
+    background-color: var(--color-morado);
+    color: #ffffff;
+    border: none;
+}
+
+.boton-morado:hover,
+.boton-morado:focus-visible {
+    background-color: var(--color-morado-hover);
+}
+
+.boton-blanco {
+    background-color: #ffffff;
+    color: var(--color-texto-suave);
+    border: 1px solid var(--color-borde);
+}
+
+.boton-blanco:hover,
+.boton-blanco:focus-visible {
+    color: var(--color-morado);
+    border-color: var(--color-morado);
+}
+
+/* ---------- Publicación: imagen + texto + acciones (recetas y rutas) ---------- */
+.publicacion {
+    display: flex;
+    gap: 2.3125rem;
+}
+
+.publicacion + .publicacion {
+    margin-top: 2rem;
+}
+
+.publicacion-img {
+    width: 23.375rem;
+    height: 12.75rem;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.publicacion-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.publicacion-texto {
+    max-width: 46.25rem;
+    font-size: 1.5rem;
+    line-height: 1.25;
+}
+
+.publicacion-acciones {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.625rem 2.5rem;
+}
+
+.icono-maps {
+    width: 2.5625rem;
+    height: 2.5625rem;
+    margin-left: -1.875rem;         /* va pegado al botón, como en el diseño */
+}
+
+/* ---------- Autor (avatar + @usuario) ---------- */
+.autor {
+    display: flex;
+    align-items: center;
+    gap: 0.3125rem;
+    min-width: 0;
+}
+
+.autor-avatar {
+    width: 3.125rem;
+    height: 3.125rem;
+    flex-shrink: 0;
+    border: 1px solid var(--color-borde);
+    border-radius: 0.75rem;
+}
+
+.autor-nombre {
+    font-size: 1.5rem;
+    color: var(--color-texto-suave);
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Iconos de ejercicios (rutinas) ---------- */
+.iconos-ejercicio {
+    display: flex;
+    align-items: center;
+    gap: 1.375rem;
+    padding-left: 0.375rem;
+    list-style: none;
+}
+
+.iconos-ejercicio li {
+    flex-shrink: 0;
+}
+
+.iconos-ejercicio img {
+    width: 1.625rem;
+    height: 1.625rem;
+}
+
+/* ---------- Pantallas estrechas ---------- */
+@media (max-width: 720px) {
+    .tarjeta {
+        width: calc(100% - 1.5rem);
+        margin: 0.75rem auto;
+        padding: 1rem;
+        min-height: 0;
+    }
+
+    .titulo-pagina {
+        margin-bottom: 1.5rem;
+    }
+
+    .boton-inicio {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+
+    .publicacion {
+        flex-direction: column;
+        gap: 0.875rem;
+    }
+
+    .publicacion-img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 374 / 204;
+    }
+
+    .publicacion-texto {
+        font-size: 1.15rem;
+    }
+
+    .publicacion-acciones {
+        gap: 0.75rem 1.5rem;
+    }
+
+    .autor-nombre {
+        font-size: 1.15rem;
+    }
+}
+
+/* Texto solo para lectores de pantalla */
+.visualmente-oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
