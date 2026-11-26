@@ -24,6 +24,7 @@ Benchwarriors/
 │   ├── resetpass.php
 │   ├── main.php           → inicio (consejo de Benchie, últimas comidas y entrenamientos)
 │   ├── recetas.php
+│   ├── receta.php         → detalle de una receta (receta.php?id=...), al pulsar "Ver más"
 │   ├── rutas.php
 │   ├── rutinas.php        → rutinas por día + ranking
 │   └── perfil.php
@@ -40,6 +41,7 @@ Benchwarriors/
     │   ├── footer.css
     │   ├── login.css      → login, registro y recuperar contraseña
     │   ├── inicio.css
+│   ├── receta.css
     │   ├── rutinas.css
     │   └── perfil.css
     ├── fonts/             → Instrument Sans (la fuente del diseño)
@@ -73,4 +75,4 @@ require __DIR__ . '/../includes/head.php';
 ## Pendiente
 
 - Conectar `includes/datos.php` y los formularios de login/registro con MySQL.
-- Páginas de detalle de los botones "Ver más", "Iniciar", "Editar" y "Editar perfil".
+- Páginas de los botones "Iniciar", "Editar" y "Editar perfil".

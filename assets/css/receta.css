@@ -1,0 +1,262 @@
+/* =========================================================
+   RECETA (detalle): receta.php?id=...
+   ========================================================= */
+
+/* ---------- Barra superior: título, volver e inicio ---------- */
+.receta-barra {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.receta-barra .titulo-pagina {
+    flex: 1;
+    margin-bottom: 0;
+    padding-right: 0;
+}
+
+.volver {
+    font-size: 1.0625rem;
+    color: var(--color-texto-suave);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.volver:hover,
+.volver:focus-visible {
+    color: var(--color-morado);
+    text-decoration: underline;
+}
+
+/* El icono de inicio va dentro de la barra, no flotando */
+.receta-barra .boton-inicio {
+    position: static;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+}
+
+/* ---------- Cabecera: foto + resumen ---------- */
+.receta-cabecera {
+    display: grid;
+    grid-template-columns: 27.5rem minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+}
+
+.receta-foto {
+    width: 100%;
+    height: 12.375rem;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.receta-resumen h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 14em;                 /* parte el título en dos líneas, como en el diseño */
+    margin-top: 0.125rem;
+}
+
+.receta-descripcion {
+    max-width: 43rem;
+    margin-top: 0.5rem;
+    font-size: 1.0625rem;
+    line-height: 1.4;
+}
+
+.receta-datos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 14rem));
+    margin-top: 0.5rem;
+}
+
+/* El valor va encima de la etiqueta, como en el diseño */
+.receta-datos div {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.receta-datos dd {
+    font-size: 1.1875rem;
+    font-weight: 700;
+}
+
+.receta-datos dt {
+    font-size: 0.9375rem;
+    color: var(--color-texto-suave);
+}
+
+.receta-autor {
+    margin-top: 0.75rem;
+}
+
+.receta-autor .autor-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.receta-autor .autor-nombre {
+    font-size: 1.125rem;
+}
+
+/* ---------- Cuerpo: ingredientes + preparación ---------- */
+.receta-cuerpo {
+    display: grid;
+    grid-template-columns: 22.5rem minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+    margin-top: 1rem;
+}
+
+.receta-cuerpo h2 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.receta-sub {
+    margin-top: 0.25rem;
+    font-size: 0.9375rem;
+    color: var(--color-texto-suave);
+}
+
+/* Ingredientes */
+.receta-ingredientes {
+    padding: 1.125rem 1.5rem;
+    background-color: var(--color-fondo);
+    border-radius: 1rem;
+}
+
+.receta-ingredientes table {
+    width: 100%;
+    margin-top: 0.75rem;
+    border-collapse: collapse;
+    font-size: 1.0625rem;
+}
+
+.receta-ingredientes tr + tr {
+    border-top: 1px solid var(--color-borde);
+}
+
+.receta-ingredientes th,
+.receta-ingredientes td {
+    padding: 0.1875rem 0;
+    line-height: 1.3;
+}
+
+.receta-ingredientes th {
+    font-weight: 400;
+    text-align: left;
+}
+
+.receta-ingredientes td {
+    padding-left: 1rem;
+    font-weight: 700;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.receta-nota {
+    margin-top: 1rem;
+    font-size: 0.9375rem;
+    color: var(--color-texto-suave);
+}
+
+/* Pasos */
+.receta-pasos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.875rem;
+    list-style: none;
+}
+
+.receta-pasos li {
+    display: flex;
+    gap: 1rem;
+}
+
+.paso-numero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    flex-shrink: 0;
+    background-color: var(--color-morado-claro);
+    color: var(--color-morado);
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 0.625rem;
+}
+
+.receta-pasos h3 {
+    font-size: 1.1875rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.receta-pasos p {
+    margin-top: 0.125rem;
+    font-size: 1.0625rem;
+    line-height: 1.4;
+}
+
+/* ---------- Receta no encontrada ---------- */
+.receta-vacia {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 2rem 0;
+}
+
+.receta-vacia h1 {
+    font-size: 1.75rem;
+}
+
+.receta-vacia p {
+    font-size: 1.125rem;
+    color: var(--color-texto-suave);
+}
+
+/* ---------- Tablet: ingredientes y pasos uno debajo del otro ---------- */
+@media (max-width: 1000px) {
+    .receta-cuerpo {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- Móvil ---------- */
+@media (max-width: 720px) {
+    .receta-barra {
+        gap: 0.75rem;
+    }
+
+    .receta-cabecera {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .receta-foto {
+        height: auto;
+        aspect-ratio: 374 / 204;
+    }
+
+    .receta-resumen h1 {
+        font-size: 1.5rem;
+    }
+
+    .receta-datos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .receta-ingredientes {
+        padding: 1rem;
+    }
+}
