@@ -3,6 +3,7 @@ require_once __DIR__ . '/../includes/datos.php';
 
 $titulo = 'Perfil';
 $estilos = ['perfil'];
+$scripts = ['perfil'];
 $paginaActiva = 'perfil';
 
 require __DIR__ . '/../includes/head.php';
@@ -19,12 +20,12 @@ require __DIR__ . '/../includes/head.php';
 
                 <div class="perfil-datos">
                     <ul class="estadisticas">
-                        <li><span><?= e($usuarioActual['amigos']) ?></span> Amigos</li>
-                        <li><span><?= e($usuarioActual['entrenamientos']) ?></span> Entrenamientos</li>
-                        <li><span><?= e($usuarioActual['racha']) ?></span> Días de Racha</li>
+                        <li><span data-contador="<?= e($usuarioActual['amigos']) ?>"><?= e($usuarioActual['amigos']) ?></span> Amigos</li>
+                        <li><span data-contador="<?= e($usuarioActual['entrenamientos']) ?>"><?= e($usuarioActual['entrenamientos']) ?></span> Entrenamientos</li>
+                        <li><span data-contador="<?= e($usuarioActual['racha']) ?>"><?= e($usuarioActual['racha']) ?></span> Días de Racha</li>
                     </ul>
 
-                    <a href="#" class="boton-morado boton-editar-perfil">EDITAR PERFIL</a>
+                    <button type="button" class="boton-morado boton-editar-perfil">EDITAR PERFIL</button>
                 </div>
 
                 <p class="perfil-usuario">@<?= e($usuarioActual['usuario']) ?></p>

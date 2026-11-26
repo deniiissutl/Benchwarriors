@@ -158,3 +158,146 @@ body {
     color: #c22424;
     font-size: 0.8em;
 }
+/* ÉXITO */
+.exito-group {
+    margin-bottom: 20px;
+    padding: 10px 14px;
+    background-color: #ecfdf5;
+    border-radius: 10px;
+    animation: bw-entrar 0.4s var(--ease-salida, ease);
+}
+
+.exito-group p {
+    color: #047857;
+    font-size: 0.9em;
+    font-weight: 700;
+}
+
+/* El error del servidor tiembla al aparecer */
+.errores-group {
+    animation: bw-temblar 0.45s ease;
+}
+
+/* =========================================================
+   VALIDACIÓN EN VIVO (formularios.js)
+   ========================================================= */
+.input-group.invalido input {
+    border-color: #dc2626;
+}
+
+.input-group.invalido input:focus {
+    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.12);
+}
+
+.input-group.valido input {
+    border-color: #16a34a;
+}
+
+.campo-error {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    color: #dc2626;
+    font-size: 13px;
+    font-weight: 600;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+}
+
+.campo-error.visible {
+    max-height: 3rem;
+    margin-top: 6px;
+    opacity: 1;
+}
+
+/* Botón de ver contraseña */
+.campo-password {
+    position: relative;
+    display: block;
+}
+
+.campo-password input {
+    width: 100%;
+    padding-right: 48px;
+}
+
+.ver-password {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #6b7280;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.ver-password:hover,
+.ver-password:focus-visible {
+    background-color: #f3e8ff;
+    color: #5b42f3;
+}
+
+/* Medidor de fuerza */
+.fuerza {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.fuerza-barras {
+    display: grid;
+    flex: 1;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+}
+
+.fuerza-barras span {
+    height: 5px;
+    border-radius: 4px;
+    background-color: #e5e7eb;
+    transition: background-color 0.35s ease;
+}
+
+.fuerza[data-nivel="1"] .fuerza-barras span:nth-child(-n+1) { background-color: #dc2626; }
+.fuerza[data-nivel="2"] .fuerza-barras span:nth-child(-n+2) { background-color: #f59e0b; }
+.fuerza[data-nivel="3"] .fuerza-barras span:nth-child(-n+3) { background-color: #65a30d; }
+.fuerza[data-nivel="4"] .fuerza-barras span:nth-child(-n+4) { background-color: #16a34a; }
+
+.fuerza-texto {
+    min-width: 64px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #6b7280;
+    text-align: right;
+}
+
+/* Tarjeta que tiembla si hay errores al enviar */
+.login-card.temblar {
+    animation: bw-temblar 0.45s ease;
+}
+
+/* Botón cargando */
+.btn.cargando {
+    pointer-events: none;
+    opacity: 0.85;
+}
+
+.btn.cargando::after {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: 8px;
+    vertical-align: -2px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: bw-girar 0.7s linear infinite;
+}

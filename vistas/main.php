@@ -3,6 +3,7 @@ require_once __DIR__ . '/../includes/datos.php';
 
 $titulo = 'Inicio';
 $estilos = ['inicio'];
+$scripts = ['inicio'];
 $paginaActiva = '';
 
 require __DIR__ . '/../includes/head.php';
@@ -13,9 +14,9 @@ require __DIR__ . '/../includes/head.php';
         <section class="caja caja-consejo">
             <h1 class="titulo-seccion">Consejo diario de Benchie</h1>
 
-            <div class="consejo">
+            <div class="consejo" data-consejos="<?= e(json_encode($consejos, JSON_UNESCAPED_UNICODE)) ?>" data-indice="<?= array_search($consejoDiario, $consejos) ?>">
                 <img src="../assets/img/benchie/benchie_consejo.png" alt="Benchie, la mascota de Bench Warriors" width="232" height="228">
-                <p><strong>Benchie</strong>: <?= e($consejoDiario) ?></p>
+                <p><strong>Benchie</strong>: <span class="consejo-texto"><?= e($consejoDiario) ?></span></p>
             </div>
         </section>
 
@@ -42,7 +43,7 @@ require __DIR__ . '/../includes/head.php';
             <ul class="lista-filas lista-entrenamientos">
 <?php foreach ($ultimosEntrenamientos as $entreno): ?>
                 <li>
-                    <a href="rutinas.php" class="fila-gris">
+                    <a href="rutinas.php" class="fila-gris" data-dia="<?= e($entreno['dia']) ?>">
                         <span class="dia">Día <?= e($entreno['dia']) ?>:</span>
                         <?php pintarIconosEjercicio($entreno['ejercicios']); ?>
                     </a>

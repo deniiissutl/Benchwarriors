@@ -16,7 +16,18 @@ $usuarioActual = [
 ];
 
 /* ---------- Inicio ---------- */
-$consejoDiario = '¡No te olvides de beber agua todos los días!';
+/* Consejos de Benchie: cada día sale uno distinto
+   y con JS se puede pedir otro. */
+$consejos = [
+    '¡No te olvides de beber agua todos los días!',
+    'Duerme entre 7 y 9 horas: el músculo crece mientras descansas.',
+    'Calienta 5-10 minutos antes de entrenar para evitar lesiones.',
+    'Incluye proteína en cada comida para recuperarte mejor.',
+    'Mejor constante que perfecto: tres días a la semana ya marcan la diferencia.',
+    'Estira al terminar, aunque sean solo cinco minutos.',
+    'Apunta tus pesos: lo que se mide, se mejora.',
+];
+$consejoDiario = $consejos[(int) date('z') % count($consejos)];
 
 $ultimasComidas = [
     'Salmón ahumado con fuet',

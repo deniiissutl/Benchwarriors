@@ -3,6 +3,7 @@ require_once __DIR__ . '/../includes/datos.php';
 
 $titulo = 'Rutinas';
 $estilos = ['rutinas'];
+$scripts = ['rutinas'];
 $paginaActiva = 'rutinas';
 
 /* Pinta una lista de ranking (amigos o general) */
@@ -35,11 +36,11 @@ require __DIR__ . '/../includes/head.php';
 
                 <ul class="lista-rutinas">
 <?php foreach ($rutinas as $rutina): ?>
-                    <li class="rutina">
+                    <li class="rutina" data-dia="<?= e($rutina['dia']) ?>">
                         <span class="dia">DÍA <?= e($rutina['dia']) ?>:</span>
                         <?php pintarIconosEjercicio($rutina['ejercicios']); ?>
-                        <a href="#" class="boton-morado">INICIAR</a>
-                        <a href="#" class="boton-blanco">EDITAR</a>
+                        <button type="button" class="boton-morado boton-iniciar">INICIAR</button>
+                        <button type="button" class="boton-blanco boton-editar">EDITAR</button>
                     </li>
 <?php endforeach; ?>
                 </ul>

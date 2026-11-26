@@ -32,8 +32,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bench Warriors - Login</title>
     <link rel="icon" href="../assets/img/benchie/benchie_saluda.jpeg">
+    <script>document.documentElement.classList.add('js');</script>
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="../assets/css/componentes.css">
+    <link rel="stylesheet" href="../assets/css/animaciones.css">
+    <script src="../assets/js/app.js" defer></script>
+    <script src="../assets/js/formularios.js" defer></script>
 </head>
 <body>
 

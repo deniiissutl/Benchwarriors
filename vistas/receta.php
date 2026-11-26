@@ -7,6 +7,7 @@ $receta = $recetas[$id] ?? null;
 
 $titulo = $receta ? $receta['titulo'] : 'Receta no encontrada';
 $estilos = ['receta'];
+$scripts = ['receta'];
 $paginaActiva = 'recetas';
 
 if (!$receta) {
@@ -45,7 +46,7 @@ require __DIR__ . '/../includes/head.php';
                     </div>
                     <div>
                         <dt>Raciones</dt>
-                        <dd><?= e($receta['raciones']) ?> <?= $receta['raciones'] == 1 ? 'persona' : 'personas' ?></dd>
+                        <dd class="dato-raciones"><?= e($receta['raciones']) ?> <?= $receta['raciones'] == 1 ? 'persona' : 'personas' ?></dd>
                     </div>
                     <div>
                         <dt>Dificultad</dt>
@@ -64,7 +65,7 @@ require __DIR__ . '/../includes/head.php';
 
         <div class="receta-cuerpo">
             <!-- INGREDIENTES -->
-            <section class="receta-ingredientes">
+            <section class="receta-ingredientes" data-raciones="<?= e($receta['raciones']) ?>">
                 <h2>Ingredientes</h2>
                 <p class="receta-sub">Cantidades para <?= e($receta['raciones']) ?> <?= $receta['raciones'] == 1 ? 'persona' : 'personas' ?></p>
 
@@ -94,7 +95,7 @@ require __DIR__ . '/../includes/head.php';
                 <ol class="receta-pasos">
 <?php foreach ($receta['pasos'] as $n => [$tituloPaso, $textoPaso]): ?>
                     <li>
-                        <span class="paso-numero" aria-hidden="true"><?= $n + 1 ?></span>
+                        <span class="paso-numero"><?= $n + 1 ?></span>
                         <div>
                             <h3><?= e($tituloPaso) ?></h3>
                             <p><?= e($textoPaso) ?></p>

@@ -1,0 +1,260 @@
+/* =========================================================
+   ANIMACIONES (todas las páginas)
+   - Entrada y salida de página
+   - Aparición escalonada de elementos al hacer scroll (clase .revelar, la pone app.js)
+   - Efectos hover, pulsación y onda en botones
+   Si el usuario pide menos movimiento en su sistema, se desactivan.
+   ========================================================= */
+
+:root {
+    --ease-salida: cubic-bezier(0.16, 1, 0.3, 1);   /* rápido al principio, suave al final */
+    --ease-suave: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Entrada / salida de página ---------- */
+
+/* Mientras app.js prepara la página, el contenido espera oculto.
+   Si el JS fallara, se muestra igualmente a los 1,2 s. */
+.js:not(.listo) main,
+.js:not(.listo) .login-wrapper {
+    opacity: 0;
+    animation: bw-mostrar 0s 1.2s forwards;
+}
+
+main,
+.login-wrapper {
+    transition: opacity 0.3s var(--ease-suave), transform 0.3s var(--ease-suave);
+}
+
+/* Al pulsar un enlace interno, la página se desvanece antes de cambiar */
+.saliendo main,
+.saliendo .login-wrapper {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+    transition-duration: 0.2s;
+}
+
+/* ---------- Aparición escalonada ---------- */
+/* .js delante para ganar a las transiciones propias de cada elemento */
+.js .revelar {
+    opacity: 0;
+    transform: translateY(1.125rem);
+    transition:
+        opacity 0.6s var(--ease-salida),
+        transform 0.6s var(--ease-salida);
+    transition-delay: var(--retraso, 0ms);
+}
+
+.js .revelar.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ---------- Hover y pulsación ---------- */
+.boton-oscuro,
+.boton-morado,
+.boton-blanco,
+.btn,
+.footer-group li a {
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.boton-morado,
+.boton-blanco,
+.btn {
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+}
+
+.boton-morado:hover {
+    box-shadow: 0 0.375rem 1rem rgba(124, 58, 237, 0.3);
+}
+
+.boton-oscuro:active,
+.boton-morado:active,
+.boton-blanco:active,
+.btn:active {
+    transform: scale(0.97);
+}
+
+/* Onda al pulsar (la crea app.js) */
+.onda {
+    position: absolute;
+    border-radius: 50%;
+    background-color: currentColor;
+    opacity: 0.25;
+    transform: scale(0);
+    pointer-events: none;
+    animation: bw-onda 0.6s var(--ease-salida) forwards;
+}
+
+/* Imágenes de recetas y rutas */
+.publicacion-img {
+    transition: transform 0.5s var(--ease-salida), box-shadow 0.5s var(--ease-salida);
+}
+
+.publicacion:hover .publicacion-img {
+    transform: scale(1.02);
+    box-shadow: 0 0.875rem 1.75rem rgba(15, 23, 42, 0.14);
+}
+
+/* Filas y tarjetas que se elevan */
+.rutina,
+.fila-gris,
+.perfil-publicaciones li {
+    transition:
+        transform 0.3s var(--ease-salida),
+        box-shadow 0.3s var(--ease-salida),
+        border-color 0.3s ease,
+        background-color 0.2s ease;
+}
+
+.rutina:hover {
+    transform: translateY(-2px);
+    border-color: #ddd6fe;
+    box-shadow: 0 0.625rem 1.5rem rgba(124, 58, 237, 0.1);
+}
+
+a.fila-gris:hover {
+    transform: translateX(4px);
+}
+
+.perfil-publicaciones li:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0.75rem 1.5rem rgba(15, 23, 42, 0.12);
+}
+
+/* Footer */
+.footer-group li a {
+    color: var(--color-morado);         /* color de la onda */
+}
+
+.footer-group img {
+    transition: transform 0.3s var(--ease-salida);
+}
+
+.footer-group li a:hover img {
+    transform: translateY(-3px) scale(1.08);
+}
+
+.footer-group li a.activo {
+    animation: bw-pop 0.5s var(--ease-salida);
+}
+
+/* Icono de inicio */
+.boton-inicio img {
+    transition: transform 0.3s var(--ease-salida);
+}
+
+.boton-inicio:hover img {
+    transform: scale(1.1) rotate(-4deg);
+}
+
+/* Benchie flotando */
+.consejo img,
+.logo-img {
+    animation: bw-flotar 4s ease-in-out infinite;
+}
+
+/* Tu fila del ranking late una vez al aparecer */
+.ranking li.tu.animada {
+    animation: bw-latido 1.2s 0.6s var(--ease-suave);
+}
+
+/* Avatar del perfil */
+.perfil-avatar {
+    transition: transform 0.4s var(--ease-salida), box-shadow 0.4s;
+}
+
+.perfil-avatar:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0.75rem 1.5rem rgba(15, 23, 42, 0.15);
+}
+
+/* Inputs */
+.input-group input {
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.input-group input:focus {
+    box-shadow: 0 0 0 4px rgba(91, 66, 243, 0.12);
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes bw-mostrar {
+    to { opacity: 1; }
+}
+
+@keyframes bw-onda {
+    to { transform: scale(1); opacity: 0; }
+}
+
+@keyframes bw-pop {
+    0%   { transform: scale(0.85); }
+    60%  { transform: scale(1.06); }
+    100% { transform: scale(1); }
+}
+
+@keyframes bw-flotar {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+}
+
+@keyframes bw-latido {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+    40%      { box-shadow: 0 0 0 6px rgba(124, 58, 237, 0.18); }
+}
+
+@keyframes bw-temblar {
+    0%, 100% { transform: translateX(0); }
+    20%      { transform: translateX(-8px); }
+    40%      { transform: translateX(7px); }
+    60%      { transform: translateX(-5px); }
+    80%      { transform: translateX(3px); }
+}
+
+@keyframes bw-saltar {
+    0%   { transform: translateY(0) rotate(0); }
+    30%  { transform: translateY(-14px) rotate(-6deg); }
+    55%  { transform: translateY(0) rotate(4deg); }
+    75%  { transform: translateY(-5px) rotate(-2deg); }
+    100% { transform: translateY(0) rotate(0); }
+}
+
+@keyframes bw-fundido {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes bw-entrar {
+    from { opacity: 0; transform: translateY(0.75rem); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes bw-girar {
+    to { transform: rotate(360deg); }
+}
+
+/* ---------- Menos movimiento ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .js .revelar {
+        opacity: 1;
+        transform: none;
+    }
+}

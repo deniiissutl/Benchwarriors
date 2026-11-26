@@ -24,7 +24,7 @@ function pintarIconosEjercicio(array $ejercicios)
             continue;
         }
         [$archivo, $nombre] = $iconos[$ejercicio];
-        echo '<li><img src="../assets/img/iconos/' . e($archivo) . '" alt="' . e($nombre) . '" title="' . e($nombre) . '" width="26" height="26"></li>';
+        echo '<li data-ejercicio="' . e($ejercicio) . '"><img src="../assets/img/iconos/' . e($archivo) . '" alt="' . e($nombre) . '" title="' . e($nombre) . '" width="26" height="26"></li>';
     }
     echo '</ul>';
 }
